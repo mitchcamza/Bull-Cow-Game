@@ -14,15 +14,16 @@ int main()
 	// get a guess from the player
 	cout << "Enter your guess: ";
 	string Guess = "";
-	cin >> Guess;
+	getline(cin, Guess);
 
 	// repeat the guess back to them
 	cout << "Your guess was: " << Guess << endl;
 
-	// two word guesses cause an error
-	// cin strips trailing whitespace and the second word is left in the input stream
+	// enter a second guess
 	cout << "Enter your guess: ";
-	cin >> Guess;
+	getline(cin, Guess);
+
+	// repeat the guess back to them
 	cout << "Your guess was: " << Guess << endl;
 
 	return 0;
