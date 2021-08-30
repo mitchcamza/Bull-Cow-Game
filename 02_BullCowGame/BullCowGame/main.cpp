@@ -6,13 +6,18 @@ using namespace std;
 void PrintIntro();
 string GetGuessAndPrintBack();
 
-// Entry point for our application
+
 int main()
 {
 	PrintIntro();
-	GetGuessAndPrintBack();
-	GetGuessAndPrintBack();
-	cout << endl;
+	
+	// loop for the number of turns asking for guesses
+	constexpr int NUMBER_OF_TURNS = 5;
+	for (int count = 0; count < NUMBER_OF_TURNS; count++)
+	{
+		GetGuessAndPrintBack();
+		cout << endl;
+	}
 
 	return 0;
 }
@@ -28,10 +33,9 @@ void PrintIntro()
 	return;
 }
 
-// get a guess from the player
-// notice the side effects introduced. This function is playing two roles.
 string GetGuessAndPrintBack()
 {
+	// get a guess from the player
 	cout << "Enter your guess: ";
 	string Guess = "";
 	getline(cin, Guess);
