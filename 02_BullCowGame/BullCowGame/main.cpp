@@ -2,16 +2,21 @@
 #include <string>
 using namespace std;
 
+int main();
+
 // Function Prototypes
 void PrintIntro();
 void PlayGame();
 string GetGuess();
+bool AskToPlayAgain();
 
 
 int main()
 {
 	PrintIntro();	
 	PlayGame();
+	AskToPlayAgain();
+
 	return 0;
 }
 
@@ -46,5 +51,13 @@ string GetGuess()
 	string Guess = "";
 	getline(cin, Guess);	
 	return Guess;
+}
+
+bool AskToPlayAgain()
+{
+	cout << "Do you want to play again? ";
+	string Response = "";
+	getline(cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
 }
 
