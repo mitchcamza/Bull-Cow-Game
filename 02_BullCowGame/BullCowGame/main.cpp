@@ -40,7 +40,7 @@ void PrintIntro()
 	constexpr int32 WORD_LENGTH = 5;
 	std::cout << "Welcome to Bulls and Cows - a fun word game\n";
 	std::cout << "Can you guess the " << WORD_LENGTH;
-	std::cout << " letter isogram I'm thinking of?\n";
+	std::cout << " letter isogram MHWChar'm thinking of?\n";
 	std::cout << std::endl;
 	return;
 }
