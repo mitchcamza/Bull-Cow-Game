@@ -7,7 +7,11 @@ int32 FBullCowGame::GetMaxTries() const { return MyMaxTries; }
 int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
 bool FBullCowGame::IsGameWon() const { return false; }
-bool FBullCowGame::CheckGuessValidity(FString) const { return false; }
+
+EWordStatus FBullCowGame::CheckGuessValidity(FString) const 
+{ 
+	return EWordStatus::OK;	// TODO: make actual error
+}
 
 void FBullCowGame::Reset()
 {
