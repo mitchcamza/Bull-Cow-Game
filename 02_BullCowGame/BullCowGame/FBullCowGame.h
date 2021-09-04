@@ -29,8 +29,8 @@ public:
 	bool IsGameWon() const;
 	EGuessStatus CheckGuessValidity(FString) const;	// TODO: make a more rich return value
 
-	void Reset();						// TODO: make a more rich return value	
-	FBullCowCount SubmitValidGuess(FString);
+	void Reset();		
+	FBullCowCount SubmitValidGuess(FString);	// TODO: make a more rich return value
 
 private:
 	int32 MyCurrentTry;
@@ -39,4 +39,5 @@ private:
 	bool bGameIsWon;
 
 	bool IsIsogram(FString) const;
+	bool IsLowercase(FString) const;
 };
