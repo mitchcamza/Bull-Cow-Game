@@ -10,15 +10,26 @@ int32 FBullCowGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FBullCowGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
 bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
-bool FBullCowGame::IsIsogram(FString Guess) const
+bool FBullCowGame::IsIsogram(FString Word) const
 {
 	// treat 0 and 1 letter words as isograms
-	
+	if (Word.length() <= 1) { return true; }
+
+	TMap<char, bool> LetterSeen;	// set up our map
+
 	// loop through all the letters of the guess
-		// if the letter is in the map
-			// the guess is NOT an isogram
-		// otherwise
-			// add the letter to the map as seen
+	for (auto Letter : Word)		// for all letters in the word
+	{
+		Letter = tolower(Letter);	// convert each letter to lowercase
+		if (LetterSeen[Letter])		// if the letter is in the map
+		{
+			return false;	// the guess is NOT an isogram
+		}
+		else
+		{
+			LetterSeen[Letter] = true;	// add the letter to the map as seen
+		}
+	}
 	
 	return true;	// for example in cases where /0 is entered
 }
