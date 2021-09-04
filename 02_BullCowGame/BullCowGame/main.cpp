@@ -14,6 +14,7 @@ using int32 = int;
 // Function Prototypes
 void PrintIntro();
 void PlayGame();
+void PrintGameSummary();
 FText GetValidGuess();
 bool AskToPlayAgain();
 
@@ -32,7 +33,6 @@ int main()
 
 	return 0;
 }
-
 
 // introduce the game
 void PrintIntro()
@@ -60,11 +60,12 @@ void PlayGame()
 
 		std::cout << "Bulls = " << FBullCowCount.Bulls;
 		std::cout << ". Cows = " << FBullCowCount.Cows << "\n\n";
-
-		// provide a method for counting bulls & cows & increment current try
 	}
-	// TODO: add a game summary
+	PrintGameSummary();
+	return;
 }
+
+
 
 // loop continually until the user enters a valid guess
 FText GetValidGuess()
@@ -103,9 +104,22 @@ FText GetValidGuess()
 	return Guess;
 }
 
+void PrintGameSummary()
+{
+	if (BCGame.IsGameWon())
+	{
+		std::cout << "WELL DONE - YOU WIN!\n";
+	}
+	else
+	{
+		std::cout << "Better luck next time!\n";
+	}
+	return;
+}
+
 bool AskToPlayAgain()
 {
-	std::cout << "Do you want to play again? (y/n): ";
+	std::cout << "Do you want to play again with the same hidden word? (y/n): ";
 	FText Response = "";
 	std::getline(std::cin, Response);
 	return (Response[0] == 'y') || (Response[0] == 'Y');
