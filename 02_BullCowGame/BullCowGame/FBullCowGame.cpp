@@ -1,7 +1,9 @@
+#pragma once
 #include "FBullCowGame.h"
 #include <map>
-#define TMap std::map 
 
+// To make syntax Unreal friendly
+#define TMap std::map 
 
 FBullCowGame::FBullCowGame() { Reset(); }
 
@@ -30,7 +32,7 @@ bool FBullCowGame::IsIsogram(FString Word) const
 		}
 	}
 	
-	return true;	// for example in cases where /0 is entered
+	return true;	// for example in cases where '\0' is entered
 }
 
 bool FBullCowGame::IsLowercase(FString Word) const
@@ -74,7 +76,7 @@ int32 FBullCowGame::GetMaxTries() const
 
 void FBullCowGame::Reset()
 {
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "planet";	// this must be an isogram
 	MyHiddenWord = HIDDEN_WORD;
 	MyCurrentTry = 1;
 	bGameIsWon = false;
